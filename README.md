@@ -48,8 +48,8 @@ Każdy trening może zawierać:
 - React,
 - Node.js,
 - Express,
-- PostgreSQL,
-- Chart.js.
+- Mysql.
+
 
 ## Cel projektu
 
