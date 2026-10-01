@@ -2,6 +2,12 @@
 
 Aplikacja webowa umożliwiająca planowanie treningów, zapisywanie wyników oraz monitorowanie postępów użytkownika.
 
+## Makieta projektu
+
+Makieta aplikacji została przygotowana w Figmie:
+
+[Otwórz makietę w Figmie](https://www.figma.com/proto/KVsgYOpvpnmRlIgMrxt3wA/Untitled?node-id=2-18451&p=f&t=1Y1OH3NGmpL5ioxo-0&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1)
+
 ## Funkcje aplikacji
 
 - rejestracja i logowanie użytkowników,
