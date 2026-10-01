@@ -65,7 +65,7 @@ Celem projektu jest stworzenie prostej i intuicyjnej aplikacji pomagającej uży
 - zapisywanie wykonanych treningów,
 - historia treningów,
 - prosty profil użytkownika,
-- responsywny interfejs.
+
 
 ### Rozszerzenia — tygodnie 5–8
 
@@ -77,7 +77,8 @@ Celem projektu jest stworzenie prostej i intuicyjnej aplikacji pomagającej uży
 - przypomnienia o treningach,
 - gotowe plany treningowe,
 - testy aplikacji,
-- wdrożenie aplikacji.
+- wdrożenie aplikacji,
+- responsywny interfejs.
 
 Projekt zostanie wykonany etapami. W pierwszej kolejności powstanie podstawowa, działająca wersja aplikacji, a następnie zostanie rozszerzona o dodatkowe funkcje.
 
