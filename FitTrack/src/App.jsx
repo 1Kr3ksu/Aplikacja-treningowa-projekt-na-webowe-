@@ -6,8 +6,8 @@ import Exercises from './pages/Exercises'
 import Plans from './pages/Plans'
 import History from './pages/History'
 import Profile from './pages/Profile'
-
-import './App.css'
+import Login from './pages/Login'
+import global from './styles/global.css'
 
 function App() {
   const [count, setCount] = useState(0)
