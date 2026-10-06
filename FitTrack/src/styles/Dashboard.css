@@ -1,0 +1,115 @@
+.summary-cards {
+    display: flex;
+    gap: 16px;
+}
+
+.summary-card {
+    width: 220px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    background: white;
+}
+
+.summary-card p {
+    margin: 0 0 12px;
+    color: #777;
+}
+
+.summary-card h2 {
+    margin: 0 0 8px;
+}
+
+.summary-card span {
+    color: #28a879;
+    font-size: 14px;
+}
+.activity-chart {
+    padding: 24px;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    background: white;
+}
+
+.activity-chart-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 24px;
+}
+
+.activity-chart-header h2 {
+    margin: 0 0 4px;
+}
+
+.activity-chart-header p {
+    margin: 0;
+    color: #777;
+    font-size: 14px;
+}
+
+.activity-chart-header span {
+    height: fit-content;
+    padding: 6px 10px;
+    border-radius: 12px;
+    background: #f1f3f6;
+    color: #777;
+    font-size: 11px;
+}
+
+.activity-chart-bars {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 16px;
+    height: 180px;
+}
+
+.activity-day {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    height: 100%;
+}
+
+.activity-bar {
+    width: 100%;
+    margin-top: auto;
+    border-radius: 8px;
+    background: #dce9ff;
+}
+
+.activity-bar-pn {
+    height: 45%;
+}
+
+.activity-bar-wt {
+    height: 65%;
+}
+
+.activity-bar-sr {
+    height: 35%;
+}
+
+.activity-bar-cz {
+    height: 75%;
+}
+
+.activity-bar-pt {
+    height: 50%;
+}
+
+.activity-bar-so {
+    height: 85%;
+    background: #28a879;
+}
+
+.activity-bar-nd {
+    height: 40%;
+}
+
+.activity-day small {
+    color: #777;
+    font-size: 12px;
+}
