@@ -2,7 +2,24 @@
 
 Aplikacja webowa umożliwiająca planowanie treningów, zapisywanie wyników oraz monitorowanie postępów użytkownika.
 
-## Makieta projektu
+## Zrzuty ekranu aplikacji
+
+### Dashboard
+
+![Dashboard aplikacji](screenshots/dashboard.png)
+
+### Ćwiczenia
+
+![Lista ćwiczeń](screenshots/cwiczenia.png)
+
+### Moje treningi
+
+![Moje treningi](screenshots/moje-treningi.png)
+
+### Logowanie
+
+![Ekran logowania](screenshots/logowanie.png)
+
 
 Makieta aplikacji została przygotowana w Figmie:
 
