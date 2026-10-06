@@ -113,3 +113,77 @@
     color: #777;
     font-size: 12px;
 }
+.latest-workouts {
+    margin-top: 32px;
+}
+
+.latest-workouts-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+
+.latest-workouts-header h2 {
+    margin: 0;
+    color: #273247;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.latest-workouts-header a {
+    color: #28a879;
+    font-size: 13px;
+    text-decoration: none;
+}
+
+.workout-card {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    min-height: 64px;
+    margin-bottom: 12px;
+    padding: 12px 16px;
+    border: 1px solid #e1e6ed;
+    border-radius: 12px;
+    background-color: white;
+}
+
+.workout-card-icon {
+    display: flex;
+    width: 38px;
+    height: 38px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    background-color: #eaf8f2;
+    color: #28a879;
+}
+
+.workout-card-info {
+    flex: 1;
+}
+
+.workout-card-info h3 {
+    margin: 0 0 4px;
+    color: #273247;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.workout-card-info p {
+    margin: 0;
+    color: #7c879a;
+    font-size: 12px;
+}
+
+.workout-card-duration {
+    color: #7c879a;
+    font-size: 12px;
+}
+
+.workout-card-calories {
+    color: #28a879;
+    font-size: 12px;
+    font-weight: 500;
+}

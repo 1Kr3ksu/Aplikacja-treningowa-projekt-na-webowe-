@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import SummaryCard from '../components/SummaryCard'
 import ActivityChart from '../components/ActivityChart'
 import WeeklyGoalCard from '../components/WeeklyGoalCard'
+import WorkoutCard from '../components/WorkoutCard'
 import '../styles/Dashboard.css'
 
 function Dashboard() { 
@@ -32,6 +33,35 @@ function Dashboard() {
 </section>
 <ActivityChart />
 <WeeklyGoalCard />
+<section className="latest-workouts">
+    <div className="latest-workouts-header">
+        <h2>Ostatnie treningi</h2>
+       <Link to="/trainings">
+        Zobacz wszystkie
+    </Link>
+    </div>
+
+    <WorkoutCard
+        name="Siła - góra ciała"
+        date="Dzisiaj, 07:10"
+        duration="52 min"
+        calories="420"
+    />
+
+    <WorkoutCard
+        name="Cardio interwałowe"
+        date="Wtorek, 18:30"
+        duration="38 min"
+        calories="365"
+    />
+
+    <WorkoutCard
+        name="Mobilność i core"
+        date="Niedziela, 09:15"
+        duration="31 min"
+        calories="180"
+    />
+</section>
         </div>
     )
 }
