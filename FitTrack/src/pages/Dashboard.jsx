@@ -13,26 +13,31 @@ function Dashboard() {
             <p>Świetna passa! Został jeden trening do celu.</p>
 
             <section className="summary-cards">
-    <SummaryCard
-        title="Treningi w tym tygodniu"
-        value="4"
-        detail="Cel: 5"
-    />
+   <SummaryCard
+    title="Treningi w tym tygodniu"
+    value="4"
+    detail="Cel: 5"
+    variant="green"
+/>
 
-    <SummaryCard
-        title="Łączny czas"
-        value="3 h 42 min"
-        detail="+38 min"
-    />
+<SummaryCard
+    title="Łączny czas"
+    value="3 h 42 min"
+    detail="+38 min"
+    variant="blue"
+/>
 
-    <SummaryCard
-        title="Aktualna seria"
-        value="12 dni"
-        detail="Rekord: 18"
-    />
+<SummaryCard
+    title="Aktualna seria"
+    value="12 dni"
+    detail="Rekord: 18"
+    variant="orange"
+/>
 </section>
-<ActivityChart />
-<WeeklyGoalCard />
+<section className="dashboard-main-grid">
+    <ActivityChart />
+    <WeeklyGoalCard />
+</section>
 <section className="latest-workouts">
     <div className="latest-workouts-header">
         <h2>Ostatnie treningi</h2>

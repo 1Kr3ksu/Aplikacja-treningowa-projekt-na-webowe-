@@ -8,6 +8,7 @@ import Exercises from './pages/Exercises'
 import Callendar from './pages/Callendar'
 import Statistics from './pages/Statistics'
 import Profile from './pages/Profile'
+import './styles/global.css'
 
 function App() {
     return (

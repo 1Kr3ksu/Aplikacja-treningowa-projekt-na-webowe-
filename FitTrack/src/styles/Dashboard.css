@@ -1,50 +1,101 @@
+.Dashboard {
+    min-height: 100vh;
+    padding: 30px 32px 48px;
+    color: #273247;
+}
+
+.Dashboard > h1 {
+    margin: 0 0 4px;
+    font-size: 28px;
+    font-weight: 500;
+}
+
+.Dashboard > p {
+    margin: 0 0 24px;
+    color: #7c879a;
+    font-size: 12px;
+}
+
 .summary-cards {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 16px;
 }
 
 .summary-card {
-    width: 220px;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 12px;
-    background: white;
+    min-height: 104px;
+    padding: 18px 16px;
+    border: 1px solid #e1e6ed;
+    border-radius: 14px;
+    background-color: #ffffff;
+    box-shadow: 0 5px 16px rgba(35, 49, 72, 0.04);
 }
 
 .summary-card p {
     margin: 0 0 12px;
-    color: #777;
+    color: #7c879a;
+    font-size: 11px;
 }
 
 .summary-card h2 {
-    margin: 0 0 8px;
+    margin: 0 0 7px;
+    color: #273247;
+    font-size: 23px;
+    font-weight: 500;
 }
 
-.summary-card span {
-    color: #28a879;
-    font-size: 14px;
+.summary-card-detail {
+    font-size: 11px;
+    font-weight: 600;
 }
+
+.summary-card-detail--green {
+    color: #28a879;
+}
+
+.summary-card-detail--blue {
+    color: #5a8df6;
+}
+
+.summary-card-detail--orange {
+    color: #f0a52c;
+}
+.dashboard-main-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.7fr) minmax(250px, 0.8fr);
+    gap: 16px;
+    margin-top: 16px;
+    align-items: stretch;
+}
+
+.dashboard-main-grid > * {
+    min-width: 0;
+}
+
 .activity-chart {
-    padding: 24px;
-    border: 1px solid #ddd;
-    border-radius: 12px;
-    background: white;
+    padding: 18px 16px 14px;
+    border: 1px solid #e1e6ed;
+    border-radius: 14px;
+    background-color: #ffffff;
+    box-shadow: 0 5px 16px rgba(35, 49, 72, 0.04);
 }
 
 .activity-chart-header {
     display: flex;
+    align-items: flex-start;
     justify-content: space-between;
-    margin-bottom: 24px;
+    margin-bottom: 14px;
 }
 
 .activity-chart-header h2 {
-    margin: 0 0 4px;
+    margin: 0 0 3px;
+    font-size: 16px;
 }
 
 .activity-chart-header p {
     margin: 0;
     color: #777;
-    font-size: 14px;
+    font-size: 10px;
 }
 
 .activity-chart-header span {
@@ -58,10 +109,10 @@
 
 .activity-chart-bars {
     display: flex;
-    align-items: end;
+    align-items: flex-end;
     justify-content: space-between;
     gap: 16px;
-    height: 180px;
+    height: 170px;
 }
 
 .activity-day {
@@ -114,7 +165,7 @@
     font-size: 12px;
 }
 .latest-workouts {
-    margin-top: 32px;
+    margin-top: 18px;
 }
 
 .latest-workouts-header {
@@ -127,7 +178,7 @@
 .latest-workouts-header h2 {
     margin: 0;
     color: #273247;
-    font-size: 20px;
+    font-size: 19px;
     font-weight: 500;
 }
 
@@ -141,9 +192,9 @@
     display: flex;
     align-items: center;
     gap: 14px;
-    min-height: 64px;
-    margin-bottom: 12px;
-    padding: 12px 16px;
+    min-height: 52px;
+    margin-bottom: 10px;
+    padding: 9px 12px;
     border: 1px solid #e1e6ed;
     border-radius: 12px;
     background-color: white;
@@ -186,4 +237,25 @@
     color: #28a879;
     font-size: 12px;
     font-weight: 500;
+}
+
+@media (max-width: 900px) {
+    .Dashboard {
+        padding: 24px 20px 40px;
+    }
+
+    .dashboard-main-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 640px) {
+    .summary-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .workout-card-duration,
+    .workout-card-calories {
+        display: none;
+    }
 }
