@@ -6,19 +6,19 @@ Aplikacja webowa umożliwiająca planowanie treningów, zapisywanie wyników ora
 
 ### Dashboard
 
-![Dashboard aplikacji](screenshots/dashboard.png)
+![Dashboard aplikacji](screenshots/Dashboard.png)
 
 ### Ćwiczenia
 
-![Lista ćwiczeń](screenshots/cwiczenia.png)
+![Lista ćwiczeń](screenshots/Workouts.png)
 
 ### Moje treningi
 
-![Moje treningi](screenshots/moje-treningi.png)
+![Moje treningi](screenshots/MyTrainings.png)
 
 ### Logowanie
 
-![Ekran logowania](screenshots/logowanie.png)
+![Ekran logowania](screenshots/Login.png)
 
 
 Makieta aplikacji została przygotowana w Figmie:
