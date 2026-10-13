@@ -6,6 +6,7 @@ import WeeklyGoalCard from '../components/WeeklyGoalCard'
 import WorkoutCard from '../components/WorkoutCard'
 import '../styles/Dashboard.css'
 
+
 function Dashboard() { 
     return (
         <div className="Dashboard">

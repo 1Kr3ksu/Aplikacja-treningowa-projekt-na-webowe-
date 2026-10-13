@@ -1,0 +1,241 @@
+.trainings-page {
+	min-height: 100vh;
+	padding: 22px 34px 48px;
+	color: #273247;
+}
+
+.trainings-header,
+.activity-buttons {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 18px;
+}
+
+.trainings-header h1 {
+	margin: 0 0 4px;
+	font-size: 28px;
+	font-weight: 500;
+}
+
+.trainings-header p {
+	margin: 0;
+	color: #7c879a;
+	font-size: 12px;
+}
+
+.create-training-button,
+.start-button {
+	border: 0;
+	border-radius: 10px;
+	background: #28a879;
+	color: #fff;
+	cursor: pointer;
+}
+
+.create-training-button {
+	padding: 13px 18px;
+	font-size: 13px;
+}
+
+.create-training-button:hover {
+	background: #155f42;
+}
+
+.activity-buttons {
+	justify-content: flex-start;
+	margin: 28px 0 24px;
+	border-bottom: 1px solid #e1e6ed;
+	padding-bottom: 17px;
+}
+
+.activity-buttons button {
+	border: 1px solid #e1e6ed;
+	border-radius: 18px;
+	background: #fff;
+	color: #68768b;
+	cursor: pointer;
+	padding: 9px 14px;
+	font-size: 12px;
+}
+
+.activity-buttons button.active {
+	border-color: #172236;
+	background: #172236;
+	color: #fff;
+}
+
+.activity-buttons span {
+	margin-left: auto;
+	color: #7c879a;
+	font-size: 12px;
+}
+
+.trainings-list {
+	display: grid;
+	gap: 12px;
+}
+
+.training-card {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	min-height: 100px;
+	padding: 18px 16px;
+	border: 1px solid #e1e6ed;
+	border-radius: 14px;
+	background: #fff;
+	box-shadow: 0 5px 16px rgba(35, 49, 72, 0.04);
+}
+
+.training-card-icon {
+	display: flex;
+	width: 40px;
+	height: 40px;
+	flex: 0 0 40px;
+	align-items: center;
+	justify-content: center;
+	border-radius: 10px;
+	background: #eaf8f2;
+	color: #28a879;
+	font-size: 22px;
+}
+
+.training-card-info {
+	flex: 1;
+	min-width: 0;
+}
+
+.training-card-title {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.training-card-info h3 {
+	margin: 0;
+	font-size: 15px;
+	font-weight: 600;
+}
+
+.training-card-info > h3 {
+	display: none;
+}
+
+.training-card-info p {
+	margin: 6px 0 0;
+	color: #7c879a;
+	font-size: 11px;
+}
+
+.training-difficulty {
+	border-radius: 10px;
+	background: #eaf8f2;
+	color: #28a879;
+	padding: 4px 8px;
+	font-size: 10px;
+}
+
+.training-card-actions {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+
+.training-card-actions button {
+	border: 1px solid #e1e6ed;
+	border-radius: 10px;
+	background: #fff;
+	color: #4f5d72;
+	cursor: pointer;
+	padding: 9px 13px;
+	font-size: 12px;
+}
+.edit-button:hover{
+    background-color: #0b1166;
+    color: #fff;
+}
+
+.training-card-actions .start-button {
+	background-color: #28a879;
+    color: #fff;
+	padding: 10px 14px;
+}
+.start-button:hover{
+    background-color: #155f42;
+    color: #fff;
+}
+
+.training-card-actions .delete-button {
+	border-color: transparent;
+}
+.delete-button:hover{
+    background-color: #ff002b;
+    color: #fff;
+}
+
+.trainer-tip {
+	display: grid;
+	grid-template-columns: auto 1fr auto;
+	align-items: center;
+	gap: 18px;
+	margin-top: 18px;
+	border-radius: 14px;
+	background: #172236;
+	color: #fff;
+	padding: 18px 22px;
+}
+
+.trainer-tip strong {
+	font-size: 13px;
+}
+
+.trainer-tip p {
+	margin: 0;
+	color: #aeb8c8;
+	font-size: 11px;
+}
+
+.trainer-tip a {
+	color: #28a879;
+	font-size: 11px;
+	text-decoration: none;
+	white-space: nowrap;
+}
+
+@media (max-width: 760px) {
+	.trainings-page {
+		padding: 24px 20px 40px;
+	}
+
+	.trainings-header,
+	.trainer-tip {
+		align-items: flex-start;
+		grid-template-columns: 1fr;
+		flex-direction: column;
+	}
+
+	.create-training-button {
+		width: 100%;
+	}
+
+	.training-card {
+		align-items: flex-start;
+		flex-wrap: wrap;
+	}
+
+	.training-card-actions {
+		width: 100%;
+		margin-left: 52px;
+	}
+
+	.activity-buttons {
+		align-items: flex-start;
+		flex-wrap: wrap;
+	}
+
+	.activity-buttons span {
+		width: 100%;
+		margin-left: 0;
+	}
+}

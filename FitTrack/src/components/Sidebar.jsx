@@ -30,6 +30,19 @@ function Sidebar() {
                     Profil
                 </NavLink>
             </nav>
+
+            <div className="sidebar-user">
+                <div className="sidebar-user-details">
+                    <div className="sidebar-avatar">MK</div>
+                    <div>
+                        <strong>Marek Kowalski</strong>
+                        <span>Plan Pro</span>
+                    </div>
+                </div>
+                <button className="sidebar-logout" type="button">
+                    <span aria-hidden="true">↪</span> Wyloguj się
+                </button>
+            </div>
         </aside>
     )
 }
