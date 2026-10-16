@@ -3,6 +3,7 @@ import Login from './pages/Login'
 import Register from './pages/Register'
 import Dashboard from './pages/Dashboard'
 import Layout from './components/Layout'
+import RequireAuth from './components/RequireAuth'
 import Trainings from './pages/Trainings'
 import Exercises from './pages/Exercises'
 import Callendar from './pages/Callendar'
@@ -17,16 +18,17 @@ function App() {
                 <Route path="/" element={<Login />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
-               
 
-                <Route element={<Layout />}>
-                    <Route path="/dashboard" element={<Dashboard />} />
-                     <Route path="/trainings" element={<Trainings />} />
-                      <Route path="/exercises" element={<Exercises />} />
-                      <Route path="/callendar" element={<Callendar />} />
-                      <Route path="/statistics" element={<Statistics />} />
-                      <Route path="/profile" element={<Profile />} />
-                      
+
+                <Route element={<RequireAuth />}>
+                    <Route element={<Layout />}>
+                        <Route path="/dashboard" element={<Dashboard />} />
+                        <Route path="/trainings" element={<Trainings />} />
+                        <Route path="/exercises" element={<Exercises />} />
+                        <Route path="/callendar" element={<Callendar />} />
+                        <Route path="/statistics" element={<Statistics />} />
+                        <Route path="/profile" element={<Profile />} />
+                    </Route>
                 </Route>
 
                 <Route path="*" element={<Login />} />

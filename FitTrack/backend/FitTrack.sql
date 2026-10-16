@@ -9,6 +9,24 @@ CREATE TABLE users (
 );
 
 
+-- 1b. SESJE UŻYTKOWNIKÓW
+CREATE TABLE sessions (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    session_token_hash CHAR(64) NOT NULL UNIQUE,
+    expires_at DATETIME NOT NULL,
+    created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+
+    CONSTRAINT fk_sessions_users
+        FOREIGN KEY (user_id)
+        REFERENCES users(id)
+        ON DELETE CASCADE,
+
+    INDEX idx_sessions_user_id (user_id),
+    INDEX idx_sessions_expires_at (expires_at)
+);
+
+
 -- 2. KATALOG ĆWICZEŃ
 CREATE TABLE exercises (
     id INT AUTO_INCREMENT PRIMARY KEY,
