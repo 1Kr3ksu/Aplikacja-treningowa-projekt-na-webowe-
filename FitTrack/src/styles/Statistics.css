@@ -31,7 +31,7 @@
 }
 
 .statistics-period-button {
-    border: 1px solid #e1e6ed;
+    border: 1px solid var(--border-color);
     border-radius: 9px;
     background: #fff;
     color: #536177;
@@ -51,7 +51,7 @@
 .statistics-chart-card,
 .statistics-progress-card,
 .statistics-record {
-    border: 1px solid #e1e6ed;
+    border: 1px solid var(--border-color);
     border-radius: 14px;
     background: #fff;
     box-shadow: 0 5px 16px rgba(35, 49, 72, 0.04);

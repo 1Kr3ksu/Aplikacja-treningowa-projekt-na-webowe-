@@ -20,3 +20,7 @@ textarea,
 select {
 	font: inherit;
 }
+:root {
+--border-color: #e1e6ed;
+
+}

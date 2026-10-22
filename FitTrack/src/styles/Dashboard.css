@@ -25,7 +25,7 @@
 .summary-card {
     min-height: 104px;
     padding: 18px 16px;
-    border: 1px solid #e1e6ed;
+    border: 1px solid var(--border-color);
     border-radius: 14px;
     background-color: #ffffff;
     box-shadow: 0 5px 16px rgba(35, 49, 72, 0.04);
@@ -74,7 +74,7 @@
 
 .activity-chart {
     padding: 18px 16px 14px;
-    border: 1px solid #e1e6ed;
+    border: 1px solid var(--border-color);
     border-radius: 14px;
     background-color: #ffffff;
     box-shadow: 0 5px 16px rgba(35, 49, 72, 0.04);
@@ -195,7 +195,7 @@
     min-height: 52px;
     margin-bottom: 10px;
     padding: 9px 12px;
-    border: 1px solid #e1e6ed;
+    border: 1px solid var(--border-color);
     border-radius: 12px;
     background-color: white;
 }

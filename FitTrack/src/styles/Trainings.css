@@ -45,12 +45,12 @@
 .activity-buttons {
 	justify-content: flex-start;
 	margin: 28px 0 24px;
-	border-bottom: 1px solid #e1e6ed;
+	border-bottom: 1px solid var(--border-color);
 	padding-bottom: 17px;
 }
 
 .activity-buttons button {
-	border: 1px solid #e1e6ed;
+	border: 1px solid var(--border-color);
 	border-radius: 18px;
 	background: #fff;
 	color: #68768b;
@@ -82,7 +82,7 @@
 	gap: 12px;
 	min-height: 100px;
 	padding: 18px 16px;
-	border: 1px solid #e1e6ed;
+	border: 1px solid var(--border-color);
 	border-radius: 14px;
 	background: #fff;
 	box-shadow: 0 5px 16px rgba(35, 49, 72, 0.04);
@@ -143,7 +143,7 @@
 }
 
 .training-card-actions button {
-	border: 1px solid #e1e6ed;
+	border: 1px solid var(--border-color);
 	border-radius: 10px;
 	background: #fff;
 	color: #4f5d72;
