@@ -1,7 +1,31 @@
 import TrainingCard from '../components/TrainingsCard'
 import '../styles/Trainings.css'
-
+import { useEffect, useState } from 'react'
+import { API_URL } from '../config/api'
 function Trainings() {
+    const [plans, setPlans] = useState([])
+    const [errorMessage, setErrorMessage] = useState('')
+
+    useEffect(() => {
+        const loadPlans = async () => {
+            try {
+                const response = await fetch(`${API_URL}/api/plans`, {
+                    credentials: 'include',
+                })
+                const data = await response.json()
+
+                if (!response.ok) {
+                    throw new Error(data.message || 'Nie udało się pobrać planów.')
+                }
+
+                setPlans(data.plans)
+            } catch (error) {
+                setErrorMessage(error.message)
+            }
+        }
+
+        loadPlans()
+    }, [])
     return (
         <div className="trainings-page">
             <header className="trainings-header">
@@ -17,37 +41,20 @@ function Trainings() {
                 <button>Siła</button>
                 <button>Cardio</button>
                 <button>Mobilność</button>
-                <span>4 zapisane plany</span>
+                <span>{plans.length} zapisane plany</span>
             </div>
 
             <div className="trainings-list">
-                <TrainingCard
-                    name="Siła - góra ciała"
-                    category="Siła"
-                    goal="7 ćwiczeń   50 min   Pn - Cz"
-                    difficulty="Średni"
-                />
-
-                <TrainingCard
-                    name="Nogi + stabilizacja"
-                    category="Nogi"
-                    goal="8 ćwiczeń   60 min   Wt - So"
-                    difficulty="Zaawansowany"
-                />
-
-                <TrainingCard
-                    name="Cardio interwałowe"
-                    category="Cardio"
-                    goal="6 ćwiczeń   35 min   Śr"
-                    difficulty="Średni"
-                />
-
-                <TrainingCard
-                    name="Mobilność całego ciała"
-                    category="Mobilność"
-                    goal="9 ćwiczeń   25 min   Nd"
-                    difficulty="Łatwy"
-                />
+                {errorMessage ? <p>{errorMessage}</p> : null}
+                {!errorMessage && plans.map((plan) => (
+                    <TrainingCard
+                        key={plan.id}
+                        name={plan.name}
+                        category={plan.goal}
+                        goal={`${plan.exercise_count} ćwiczeń`}
+                        difficulty={plan.difficulty || 'Średni'}
+                    />
+                ))}
             </div>
 
             <aside className="trainer-tip">
