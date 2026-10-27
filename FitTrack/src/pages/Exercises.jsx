@@ -1,101 +1,93 @@
+import { useEffect, useState } from 'react'
+import { API_URL } from '../config/api'
 import '../styles/Exercises.css'
 
 function Exercises() {
+    const [exercises, setExercises] = useState([])
+    const [isLoading, setIsLoading] = useState(true)
+    const [errorMessage, setErrorMessage] = useState('')
+    const [searchTerm, setSearchTerm] = useState('')
+    const [selectedCategory, setSelectedCategory] = useState('Wszystkie')
+    useEffect(() => {
+        const loadExercises = async () => {
+            try {
+                const response = await fetch(`${API_URL}/api/exercises`)
+                const data = await response.json()
+
+                if (!response.ok) {
+                    throw new Error(data.message || 'Nie udało się pobrać ćwiczeń.')
+                }
+
+                setExercises(data.exercises)
+            } catch (error) {
+                setErrorMessage(error.message)
+            } finally {
+                setIsLoading(false)
+            }
+        }
+
+        loadExercises()
+    }, [])
+const filteredExercises = exercises.filter((exercise) => {
+   const matchesSearch = 
+   exercise.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+   exercise.category.toLowerCase().includes(searchTerm.toLowerCase())
+
+   const matchesCategory = 
+    selectedCategory === 'Wszystkie' || 
+    exercise.category === selectedCategory
+
+    return matchesSearch && matchesCategory
+})
     return (
         <div className="exercises-page">
             <header className="exercises-toolbar">
                 <label className="exercise-search">
                     <span aria-hidden="true">⌕</span>
-                    <input type="search" placeholder="Szukaj ćwiczenia, partii mięśniowej..." />
-                    <small>⌘ K</small>
+                    <input type="search" placeholder="Szukaj ćwiczenia, partii mięśniowej..." value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} />
                 </label>
 
                 <div className="exercise-filters">
-                    <button className="active" type="button">Wszystkie</button>
-                    <button type="button">Klatka</button>
-                    <button type="button">Plecy</button>
-                    <button type="button">Nogi</button>
-                    <button type="button">Core</button>
+                    <button className={selectedCategory === 'Wszystkie' ? 'active' : ''} type="button"
+                     onClick={() => setSelectedCategory('Wszystkie')}
+                    >
+                        Wszystkie</button>
+                    <button className={selectedCategory === 'Klatka' ? 'active' :''} type="button"
+                     onClick={() => setSelectedCategory('Klatka')}
+                    >Klatka</button>
+                    <button className={selectedCategory === 'Plecy' ? 'active' :''} type="button"
+                     onClick={() => setSelectedCategory('Plecy')}
+                    >Plecy</button>
+                    <button className={selectedCategory === 'Nogi' ? 'active' :''} type="button"
+                     onClick={() => setSelectedCategory('Nogi')}
+                    >Nogi</button>
+                    <button className={selectedCategory === 'Core' ? 'active' :''} type="button"
+                     onClick={() => setSelectedCategory('Core')}
+                    >Core</button>
                 </div>
             </header>
 
             <div className="exercises-list-header">
-                <span>48 ćwiczeń</span>
+                <span>{filteredExercises.length} ćwiczeń</span>
                 <button type="button">Sortuj: Najpopularniejsze ↓</button>
             </div>
 
             <section className="exercise-grid">
-                <article className="exercise-card">
-                    <div className="exercise-image-wrap">
-                        <img src="https://images.unsplash.com/photo-1534367507873-d2d7e24c797f?auto=format&fit=crop&w=900&q=80" alt="Przysiad ze sztangą" />
-                        <span>Nogi</span>
-                    </div>
-                    <div className="exercise-card-content">
-                        <div className="exercise-card-title"><h2>Przysiad ze sztangą</h2><small>Średni</small></div>
-                        <p>Fundament siły nóg i stabilnego tułowia.</p>
-                        <button className="add-exercise-button" type="button">＋ &nbsp;Dodaj do treningu</button>
-                    </div>
-                </article>
-
-                <article className="exercise-card">
-                    <div className="exercise-image-wrap">
-                        <img src="https://images.unsplash.com/photo-1538805060514-97d9cc17730c?auto=format&fit=crop&w=900&q=80" alt="Wyciskanie sztangi" />
-                        <span>Klatka</span>
-                    </div>
-                    <div className="exercise-card-content">
-                        <div className="exercise-card-title"><h2>Wyciskanie sztangi</h2><small>Średni</small></div>
-                        <p>Klasyczne ćwiczenie na siłę górnej części ciała.</p>
-                        <button className="add-exercise-button" type="button">＋ &nbsp;Dodaj do treningu</button>
-                    </div>
-                </article>
-
-                <article className="exercise-card">
-                    <div className="exercise-image-wrap">
-                        <img src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=900&q=80" alt="Martwy ciąg" />
-                        <span>Plecy</span>
-                    </div>
-                    <div className="exercise-card-content">
-                        <div className="exercise-card-title"><h2>Martwy ciąg</h2><small>Zaawansowany</small></div>
-                        <p>Wzmacnia cały tylny łańcuch mięśniowy.</p>
-                        <button className="add-exercise-button" type="button">＋ &nbsp;Dodaj do treningu</button>
-                    </div>
-                </article>
-
-                <article className="exercise-card">
-                    <div className="exercise-image-wrap">
-                        <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=900&q=80" alt="Deska" />
-                        <span>Core</span>
-                    </div>
-                    <div className="exercise-card-content">
-                        <div className="exercise-card-title"><h2>Deska</h2><small>Łatwy</small></div>
-                        <p>Buduje stabilizację i wytrzymałość mięśni głębokich.</p>
-                        <button className="add-exercise-button" type="button">＋ &nbsp;Dodaj do treningu</button>
-                    </div>
-                </article>
-
-                <article className="exercise-card">
-                    <div className="exercise-image-wrap">
-                        <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=900&q=80" alt="Wiosłowanie hantlem" />
-                        <span>Plecy</span>
-                    </div>
-                    <div className="exercise-card-content">
-                        <div className="exercise-card-title"><h2>Wiosłowanie hantlem</h2><small>Średni</small></div>
-                        <p>Rozwija najszerszy grzbietu i kontrolę łopatki.</p>
-                        <button className="add-exercise-button" type="button">＋ &nbsp;Dodaj do treningu</button>
-                    </div>
-                </article>
-
-                <article className="exercise-card">
-                    <div className="exercise-image-wrap">
-                        <img src="https://images.unsplash.com/photo-1517964603305-11c0f6f66012?auto=format&fit=crop&w=900&q=80" alt="Wykroki chodzone" />
-                        <span>Nogi</span>
-                    </div>
-                    <div className="exercise-card-content">
-                        <div className="exercise-card-title"><h2>Wykroki chodzone</h2><small>Średni</small></div>
-                        <p>Poprawiają równowagę i siłę każdej nogi.</p>
-                        <button className="add-exercise-button" type="button">＋ &nbsp;Dodaj do treningu</button>
-                    </div>
-                </article>
+                {isLoading ? <p>Ładowanie ćwiczeń...</p> : null}
+                {errorMessage ? <p>{errorMessage}</p> : null}
+                {!isLoading && !errorMessage && filteredExercises.map((exercise) => (
+                    <article className="exercise-card" key={exercise.id}>
+                        <div className="exercise-image-wrap">
+                            <img src={exercise.image_url} alt={exercise.name} />
+                            <span>{exercise.category}</span>
+                        </div>
+                        <div className="exercise-card-content">
+                            <div className="exercise-card-title"><h2>{exercise.name}</h2><small>{exercise.difficulty}</small></div>
+                            <p>{exercise.description}</p>
+                            <button className="add-exercise-button" type="button">＋ &nbsp;Dodaj do treningu</button>
+                        </div>
+                    </article>
+                ))}
             </section>
         </div>
     )

@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { API_URL } from '../config/api'
 import '../styles/Login.css'
 
 function Register() {
@@ -43,7 +44,7 @@ function Register() {
         setIsLoading(true)
 
         try {
-            const response = await fetch('http://localhost:3000/api/register', {
+            const response = await fetch(`${API_URL}/api/register`, {
                 method: 'POST',
                 credentials: 'include',
                 headers: {

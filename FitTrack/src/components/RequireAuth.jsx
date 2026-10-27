@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Navigate, Outlet, useLocation } from 'react-router-dom'
+import { API_URL } from '../config/api'
 
 function RequireAuth() {
     const location = useLocation()
@@ -8,7 +9,7 @@ function RequireAuth() {
     useEffect(() => {
         const checkSession = async () => {
             try {
-                const response = await fetch('http://localhost:3000/api/me', {
+                const response = await fetch(`${API_URL}/api/me`, {
                     credentials: 'include',
                 })
 

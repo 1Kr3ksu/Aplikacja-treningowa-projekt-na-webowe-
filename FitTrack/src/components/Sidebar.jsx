@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
+import { API_URL } from '../config/api'
 
 function Sidebar() {
     const navigate = useNavigate()
@@ -8,7 +9,7 @@ function Sidebar() {
     useEffect(() => {
         const loadUser = async () => {
             try {
-                const response = await fetch('http://localhost:3000/api/me', {
+                const response = await fetch(`${API_URL}/api/me`, {
                     credentials: 'include',
                 })
 
@@ -29,7 +30,7 @@ function Sidebar() {
 
     const handleLogout = async () => {
         try {
-            await fetch('http://localhost:3000/api/logout', {
+            await fetch(`${API_URL}/api/logout`, {
                 method: 'POST',
                 credentials: 'include',
             })
