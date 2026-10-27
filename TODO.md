@@ -52,12 +52,12 @@ Najważniejsze tabele:
 
 ## Dodaj plany treningowe
 
-- [ ] Pobieranie planów zalogowanego użytkownika.
+- [x] Pobieranie planów zalogowanego użytkownika.
 - [ ] Tworzenie planu.
 - [ ] Edycja planu.
 - [ ] Usuwanie planu.
 - [ ] Dodawanie ćwiczeń do planu.
-- [ ] Podłącz te funkcje do strony „Moje treningi”.
+- [x] Podłącz te funkcje do strony „Moje treningi”.
 
 ## Dodaj katalog ćwiczeń
 
