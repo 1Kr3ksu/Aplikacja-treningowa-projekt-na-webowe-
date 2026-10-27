@@ -1,0 +1,249 @@
+.statistics-page {
+    min-height: 100vh;
+    padding: 30px 32px 48px;
+    color: #273247;
+}
+
+.statistics-header,
+.statistics-card-header,
+.statistics-record {
+    display: flex;
+    align-items: center;
+}
+
+.statistics-header {
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.statistics-header h1 {
+    margin: 0 0 4px;
+    font-size: 28px;
+    font-weight: 500;
+}
+
+.statistics-header p,
+.statistics-card-header p,
+.statistics-progress-card > p {
+    margin: 0;
+    color: #7c879a;
+    font-size: 12px;
+}
+
+.statistics-period-button {
+    border: 1px solid #e1e6ed;
+    border-radius: 9px;
+    background: #fff;
+    color: #536177;
+    cursor: pointer;
+    padding: 11px 14px;
+    font-size: 12px;
+}
+
+.statistics-summary {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+    margin-top: 28px;
+}
+
+.statistics-summary article,
+.statistics-chart-card,
+.statistics-progress-card,
+.statistics-record {
+    border: 1px solid #e1e6ed;
+    border-radius: 14px;
+    background: #fff;
+    box-shadow: 0 5px 16px rgba(35, 49, 72, 0.04);
+}
+
+.statistics-summary article {
+    display: grid;
+    gap: 8px;
+    padding: 18px 16px;
+}
+
+.statistics-summary span,
+.statistics-record span {
+    color: #7c879a;
+    font-size: 11px;
+}
+
+.statistics-summary strong {
+    font-size: 23px;
+    font-weight: 500;
+}
+
+.statistics-summary small {
+    color: #28a879;
+    font-size: 10px;
+}
+
+.statistics-content {
+    display: grid;
+    grid-template-columns: minmax(0, 1.7fr) minmax(250px, 0.8fr);
+    gap: 16px;
+    margin-top: 16px;
+}
+
+.statistics-chart-card,
+.statistics-progress-card {
+    padding: 18px 16px;
+}
+
+.statistics-card-header {
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.statistics-card-header h2,
+.statistics-progress-card h2 {
+    margin: 0 0 4px;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.statistics-card-header > span {
+    border-radius: 12px;
+    background: #eaf8f2;
+    color: #28a879;
+    padding: 6px 10px;
+    font-size: 10px;
+}
+
+.statistics-chart {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    position: relative;
+    height: 210px;
+    margin-top: 22px;
+    padding: 20px 12px 0;
+}
+
+.chart-line {
+    position: absolute;
+    right: 12px;
+    left: 12px;
+    border-top: 1px solid #edf0f4;
+}
+
+.chart-line-one { top: 25%; }
+.chart-line-two { top: 50%; }
+.chart-line-three { top: 75%; }
+
+.chart-bar {
+    z-index: 1;
+    display: flex;
+    width: 13%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 8px;
+    height: 100%;
+}
+
+.chart-bar::before {
+    display: block;
+    width: 100%;
+    border-radius: 8px 8px 2px 2px;
+    background: #dce9ff;
+    content: '';
+}
+
+.chart-bar-one::before { height: 38%; }
+.chart-bar-two::before { height: 62%; }
+.chart-bar-three::before { height: 50%; }
+.chart-bar-four::before { height: 78%; background: #28a879; }
+
+.chart-bar span {
+    position: absolute;
+    margin-bottom: 9px;
+    color: #536177;
+    font-size: 11px;
+}
+
+.chart-bar small {
+    color: #7c879a;
+    font-size: 10px;
+}
+
+.progress-item {
+    margin-top: 25px;
+}
+
+.progress-item > div:first-child {
+    display: flex;
+    justify-content: space-between;
+    color: #536177;
+    font-size: 12px;
+}
+
+.progress-item strong {
+    font-weight: 500;
+}
+
+.progress-track {
+    height: 8px;
+    margin-top: 9px;
+    overflow: hidden;
+    border-radius: 8px;
+    background: #edf0f4;
+}
+
+.progress-fill {
+    display: block;
+    height: 100%;
+    border-radius: inherit;
+}
+
+.progress-fill-green { width: 50%; background: #28a879; }
+.progress-fill-blue { width: 30%; background: #5a8df6; }
+.progress-fill-orange { width: 20%; background: #f0a52c; }
+
+.statistics-record {
+    justify-content: space-between;
+    gap: 20px;
+    margin-top: 16px;
+    padding: 18px 22px;
+}
+
+.statistics-record div {
+    display: grid;
+    gap: 7px;
+}
+
+.statistics-record strong {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+@media (max-width: 900px) {
+    .statistics-content {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 640px) {
+    .statistics-page {
+        padding: 24px 20px 40px;
+    }
+
+    .statistics-header {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .statistics-period-button {
+        width: 100%;
+    }
+
+    .statistics-summary {
+        grid-template-columns: 1fr;
+    }
+
+    .statistics-record {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}
