@@ -2,60 +2,12 @@ require('dotenv').config();
 
 const express = require('express');
 const cors = require('cors');
-const bcrypt = require('bcrypt');
 const mysql = require('mysql2/promise');
-const crypto = require('crypto');
+const createAuthRoutes = require('./routes/authRoutes');
+const createSessionService = require('./services/sessionService');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-const SALT_ROUNDS = 10;
-const SESSION_COOKIE_NAME = 'fittrack_session';
-const SESSION_DURATION_MS = 1000 * 60 * 60 * 24 * 7;
-
-function parseCookies(cookieHeader = '') {
-    return cookieHeader.split(';').reduce((cookies, part) => {
-        const [rawKey, ...rest] = part.trim().split('=');
-
-        if (!rawKey) {
-            return cookies;
-        }
-
-        cookies[rawKey] = decodeURIComponent(rest.join('='));
-        return cookies;
-    }, {});
-}
-
-function createSessionCookie(token) {
-    const parts = [
-        `${SESSION_COOKIE_NAME}=${encodeURIComponent(token)}`,
-        'Path=/',
-        'HttpOnly',
-        `Max-Age=${Math.floor(SESSION_DURATION_MS / 1000)}`,
-        'SameSite=Lax',
-    ];
-
-    if (process.env.NODE_ENV === 'production') {
-        parts.push('Secure');
-    }
-
-    return parts.join('; ');
-}
-
-function clearSessionCookie() {
-    const parts = [
-        `${SESSION_COOKIE_NAME}=`,
-        'Path=/',
-        'HttpOnly',
-        'Max-Age=0',
-        'SameSite=Lax',
-    ];
-
-    if (process.env.NODE_ENV === 'production') {
-        parts.push('Secure');
-    }
-
-    return parts.join('; ');
-}
 
 app.use(cors({
     origin: process.env.CLIENT_ORIGIN || 'http://localhost:5173',
@@ -73,60 +25,15 @@ const pool = mysql.createPool({
     queueLimit: 0,
 });
 
-async function ensureSessionTable() {
-    await pool.execute(`
-        CREATE TABLE IF NOT EXISTS sessions (
-            id INT AUTO_INCREMENT PRIMARY KEY,
-            user_id INT NOT NULL,
-            session_token_hash CHAR(64) NOT NULL UNIQUE,
-            expires_at DATETIME NOT NULL,
-            created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+const sessionService = createSessionService(pool);
 
-            CONSTRAINT fk_sessions_users
-                FOREIGN KEY (user_id)
-                REFERENCES users(id)
-                ON DELETE CASCADE,
-
-            INDEX idx_sessions_user_id (user_id),
-            INDEX idx_sessions_expires_at (expires_at)
-        )
-    `);
-}
-
-async function getUserBySessionToken(sessionToken) {
-    const sessionTokenHash = crypto.createHash('sha256').update(sessionToken).digest('hex');
-    const [sessions] = await pool.execute(
-        `SELECT sessions.user_id, sessions.expires_at, users.nick, users.email
-         FROM sessions
-         INNER JOIN users ON users.id = sessions.user_id
-         WHERE sessions.session_token_hash = ?
-         LIMIT 1`,
-        [sessionTokenHash]
-    );
-
-    if (sessions.length === 0) {
-        return null;
-    }
-
-    const session = sessions[0];
-
-    if (new Date(session.expires_at).getTime() <= Date.now()) {
-        await pool.execute('DELETE FROM sessions WHERE user_id = ? AND session_token_hash = ?', [session.user_id, sessionTokenHash]);
-        return null;
-    }
-
-    return {
-        id: session.user_id,
-        name: session.nick,
-        email: session.email,
-        sessionTokenHash,
-    };
-}
+app.use('/api', createAuthRoutes(pool));
 
 app.get('/health', (req, res) => {
     res.json({ status: 'ok' });
 });
 
+<<<<<<< HEAD
 app.get('/api/exercises', async (req, res) => {
     try {
         const [exercises] = await pool.execute(
@@ -306,13 +213,15 @@ app.post('/api/logout', async (req, res) => {
     }
 });
 
+=======
+>>>>>>> 2aa126590437284cce5ddcae636ad7e6f8c0efb6
 app.get('/', (req, res) => {
     res.send('FitTrack backend is running.');
 });
 
 async function startServer() {
     try {
-        await ensureSessionTable();
+        await sessionService.ensureSessionTable();
 
         app.listen(PORT, () => {
             console.log(`Server is running on port ${PORT}`);
