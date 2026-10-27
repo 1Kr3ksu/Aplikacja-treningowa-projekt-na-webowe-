@@ -61,9 +61,9 @@ Najważniejsze tabele:
 
 ## Dodaj katalog ćwiczeń
 
-- [ ] Ćwiczenia mogą być początkowo zapisane jako dane publiczne w bazie.
-- [ ] Wyszukiwanie po nazwie.
-- [ ] Filtrowanie po kategorii.
+- [x] Ćwiczenia mogą być początkowo zapisane jako dane publiczne w bazie.
+- [x] Wyszukiwanie po nazwie.
+- [x] Filtrowanie po kategorii.
 - [ ] Dodawanie ćwiczenia do wybranego planu.
 - [ ] Później możesz dodać własne ćwiczenia użytkownika.
 
